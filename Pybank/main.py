@@ -29,14 +29,14 @@ num_months = len(PnL)
 
 #net_total
 for x in PnL:
-   net_total = net_total_Pnl + x
+   net_total_PnL = net_total_Pnl + x
 
 #average
-average = round(net_total / num_months, 2)
+average_change_PnL = round(net_total_PnL / num_months, 2)
 
-greatest_increase_profits = PnL.max()
+maximum = PnL.max()
 
-greatest_decrease_profits = PnL.min()
+minimum = PnL.min()
 
 max_date = list(total_info.keys())[list(total_info.values()).index(1170593)]
 
@@ -51,7 +51,7 @@ with open(output_path, 'w') as file:
     file.write(f"Financial Analysis\n")
     file.write(f"-------------------------------")
     file.write(f"Total Months: {num_months}")
-    file.write(f"Total {net_total}.")
-    file.write(f"Average Change : ${average} ")
+    file.write(f"Total {net_total_PnL}.")
+    file.write(f"Average Change : ${average_change_PnL} ")
     file.write(f"Greatest Increase in Profits {max_date} , {maximum}")
     file.write(f"Greatest Decrease in Profits {min_date} , {minimum} ")
